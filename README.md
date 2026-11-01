@@ -1,23 +1,30 @@
 # RailBoard
 
-A lightweight Android app for live UK National Rail departure boards, written in plain Java (no external app dependencies).
+Live UK National Rail departure boards for Android, written in plain Java.
 
-- Live departures from National Rail's Darwin data via the free Huxley2 community proxy (no API key)
-- Station search plus a "nearest station" finder using phone location
-- Live-tiles style board with platform, operator, delays and cancellations
-- Home screen widget that caches the last viewed board
-- Material 3 style dark UI
+## Overview
+RailBoard brings railway departure information to an Android app, with a lightweight interface and a home-screen widget.
 
-## Build
+## Highlights
+- Live UK National Rail departure-board experience
+- Plain Java Android implementation
+- Home-screen widget support
+- Darwin data access through a proxy service
 
-The APK is built with the standard Android toolchain (aapt2 + javac + d8, minSdk 24, targetSdk 34):
+## Project
+- Platform: Android
+- Language: Java
+- UI direction: Material 3-inspired
+- Dependencies: designed to keep the Android app lightweight
 
-    aapt2 compile --dir app/src/main/res -o res.zip
-    aapt2 link -o res-linked.zip -I android.jar --manifest app/src/main/AndroidManifest.xml -R res.zip --java gen
-    javac --release 8 -classpath android.jar -d classes $(find app/src/main/java gen -name '*.java')
-    d8 --min-api 24 --release --lib android.jar --output . $(find classes -name '*.class')
+## Getting started
+1. Clone the repository.
+2. Open the Android project in Android Studio.
+3. Sync the Gradle project.
+4. Build and run on a compatible Android device.
 
-## Notes
+## Data and connectivity
+Live information depends on network access and the availability/configuration of the data proxy. Do not assume live data will be available offline.
 
-- Signing keystore is kept out of the repo on purpose.
-- Data is provided by the National Rail Darwin feed; availability depends on the community proxy.
+## Status
+Active experiment. Check the source and latest commits for the current feature set.
